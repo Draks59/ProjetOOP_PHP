@@ -1,10 +1,7 @@
-<?php
+<?php foreach (\App\Table\Article::getLast() as $beer):  ?>
+    
+    <h2><a href="<?= $beer->url ?>"><?= $beer->name ?></a></h2>
+    
+    <p> <?= $beer->Description; ?></p>
 
-use App\Database;
-
-$db = new Database('blog');
-$data = $db->query('SELECT * FROM articles');
-var_dump($data);
-
-
-// https://youtu.be/weE2adYHPG0?list=PLjwdMgw5TTLVDKy8ikf5Df5fnMqY-ec16&t=988
+<?php endforeach; ?>
