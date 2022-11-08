@@ -4,7 +4,7 @@ use App\App;
  class Article{
 
     public static function getLast(){
-        return App::getDb()->query('SELECT * FROM beer', __CLASS__);
+        return App::getDb()->query('SELECT * FROM products', __CLASS__);
     }
     public function __get($key)
     {
@@ -14,11 +14,11 @@ use App\App;
 
     }
     public function getUrl(){
-        return 'index.php?p=article&id=' . $this->id;
+        return 'index.php?p=article&id=' . $this->ID;
     }
 
     public function getDescription(){
-        $html = '<p>' . substr($this->desc, 0, 150) . '...</p>';
+        $html = '<p>' . substr($this->Desc, 0, 150) . '...</p>';
         $html .= '<p><a href="'. $this->getURL() . '">Voir la suite</a></p>';
         return  $html;
     }
