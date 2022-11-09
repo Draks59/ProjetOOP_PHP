@@ -11,13 +11,28 @@ if (isset($_GET['p'])){
 }
 
 ob_start();
-if ($p === 'home'){
-    require '../pages/home.php';
+switch ($p) {
+    case 'home':
+        require '../pages/home.php';
+        break;
+    case 'menu':
+        require '../pages/menu.php';
+        break;
+    case 'product':
+        require '../pages/product.php';
+        break;
+    case 'categorie':
+        require '../pages/categorie.php';
+        break;
+    case 'locate':
+        require '../pages/locate.php';
+        break;  
+    case 'contact':
+        require '../pages/contact.php';
+        break;                
+    case '404':
+        require '../pages/404.php';
+        break;
 }
-
-elseif ($p === 'article'){
-    require '../pages/test.php';
-}
-
 $content = ob_get_clean();
 require '../pages/templates/default.php';

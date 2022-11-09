@@ -20,16 +20,20 @@ class Database{
 
     private function getPDO()
     {
-        if ($this->pdo === null){
-            $pdo = new PDO('mysql:dbname=beers;host=127.0.0.1', 'root', 'toor');
+            $pdo = new PDO('mysql:dbname='. $this->db_name .';host='. $this->db_host, $this->db_user, $this->db_pwd, array (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''));
             $this->pdo = $pdo;
-        }
-        return $pdo;
+            return $pdo;
     }
 
-    public function query($statement, $class_name){
+    public function query($statement, $class_name, $one = false){
         $req = $this->getPDO()->query($statement);
-        $data = $req->fetchAll(PDO::FETCH_CLASS, $class_name);
+        $req->setFetchMode(PDO::FETCH_CLASS, $class_name);
+
+        if($one){
+            $data = $req->fetch();
+        }else{
+            $data = $req->fetchAll();
+        }
         return $data;
     }
 
@@ -37,6 +41,7 @@ class Database{
         $req = $this->getPDO()->prepare($statement);
         $req->execute($attributes);
         $req->setFetchMode(PDO::FETCH_CLASS, $class_name);
+
         if($one){
             $data = $req->fetch();
         }else{
