@@ -1,8 +1,7 @@
 <?php
-require '../app/Autoloader.php';
-use App\Autoloader;
-
-Autoloader::register();
+define('ROOT',dirname(__DIR__));
+require ROOT . '/app/App.php';
+App::load();
 
 if (isset($_GET['p'])){
     $p = $_GET['p'];
@@ -13,26 +12,26 @@ if (isset($_GET['p'])){
 ob_start();
 switch ($p) {
     case 'home':
-        require '../pages/home.php';
+        require ROOT . '/pages/home.php';
         break;
     case 'menu':
-        require '../pages/menu.php';
+        require ROOT . '/pages/menu.php';
         break;
     case 'product':
-        require '../pages/product.php';
+        require ROOT . '/pages/product.php';
         break;
     case 'categorie':
-        require '../pages/categorie.php';
+        require ROOT . '/pages/categorie.php';
         break;
     case 'locate':
-        require '../pages/locate.php';
+        require ROOT . '/pages/locate.php';
         break;  
     case 'contact':
-        require '../pages/contact.php';
+        require ROOT . '/pages/contact.php';
         break;                
     case '404':
-        require '../pages/404.php';
+        require ROOT . '/pages/404.php';
         break;
 }
 $content = ob_get_clean();
-require '../pages/templates/default.php';
+require ROOT . '/pages/templates/default.php';

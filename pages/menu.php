@@ -2,22 +2,23 @@
     <div class="col-8">
         <?php
 
-            foreach (\App\Table\Product::getLast() as $beer): ?>
+
+            foreach (App::getInstance()->getTable('Products')->GetLast() as $beer): ?>
             
-            <h2><a href="<?= $beer->url; ?>"><?= $beer->Name; ?></a></h2>
+            <h2><a href="<?= 123; ?>"><?= $beer->Name; ?></a></h2>
 
             <h3> <?= $beer->categorie;  ?></h3>
 
-            <p> <?= $beer->Description;  ?></p>
+            <p> <?= $beer->Desc;  ?></p>
             
             <?php endforeach; ?>
 
     </div>   
     <div class="col-4">
         <ul>
-            <?php foreach (\App\Table\Categorie::all() as $categorie): ?>
+            <?php foreach (App::getInstance()->getTable('Categories')->all() as $categorie): ?>
                 
-                <li><a href="<?= $categorie->url; ?>"><?= $categorie->Name; ?></a></li>
+                <li><a href="<?= 123 ?>"><?= $categorie->Name; ?></a></li>
             
             <?php endforeach; ?>
         </ul>

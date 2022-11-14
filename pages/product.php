@@ -1,10 +1,10 @@
 <?php
 
 use App\App;
-use App\Table\Product;
+use App\Table\ProductsTable;
 
 
-$beer = Product::find($_GET['id']);
+$beer = ProductsTable::find($_GET['id']);
 if ($beer === false){
     App::notFound();
 }
@@ -25,7 +25,7 @@ App::setTitle('Page du produit : '. $beer->Name);
     </div>   
     <div class="col-4">
         <ul>
-            <?php foreach (\App\Table\Categorie::all() as $categorie): ?>
+            <?php foreach (\App\Table\CategoriesTable::all() as $categorie): ?>
                 
                 <li><a href="<?= $categorie->url; ?>"><?= $categorie->Name; ?></a></li>
             

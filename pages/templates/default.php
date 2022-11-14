@@ -10,7 +10,7 @@
     <script src="assets/js/jquery-3.6.1.min.js" defer></script>
     <script src="assets/js/bootstrap.bundle.js" defer></script>        
     <script src="assets/js/scripts.js" defer></script>
-    <title><?= \App\App::getTitle(); ?></title>
+    <title>EN CONSTRUCTION</title>
   </head>
   <body>
     <?php require '../pages/templates/_partials/_nav.html'; ?>

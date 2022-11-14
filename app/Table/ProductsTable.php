@@ -1,9 +1,12 @@
 <?php 
 namespace App\Table;
- class Product extends Table {
+use Core\Table\Table;
+ class ProductsTable extends Table{
 
-    public static function find($id){
-        return self::query("
+    protected $db;
+
+    public function find($id){
+        return $this->db->query("
         SELECT products.ID, products.Name, products.Desc, products.Photo, categories.Name as categorie 
         FROM products
         LEFT JOIN categories 
@@ -11,16 +14,16 @@ namespace App\Table;
         WHERE products.ID = ?
         ", [$id], true);
     }
-    public static function getLast(){
-        return self::query("
+    public function getLast(){
+        return $this->db->query("
         SELECT products.ID, products.Name, products.Desc, products.Photo, categories.Name as categorie 
         FROM products
         LEFT JOIN categories 
             ON Cat_ID = categories.ID
         ");
     }
-    public static function LastByCategory($Cat_ID){
-        return self::query("
+    public function LastByCategory($Cat_ID){
+        return $this->db->query("
         SELECT products.ID, products.Name, products.Desc, products.Photo, categories.Name as categorie 
         FROM products
         LEFT JOIN categories 
@@ -38,4 +41,7 @@ namespace App\Table;
         $html .= '<p><a href="'. $this->getURL() . '">Voir la suite</a></p>';
         return  $html;
     }
- }
+
+    
+
+}
