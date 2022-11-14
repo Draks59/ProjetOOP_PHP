@@ -1,15 +1,11 @@
 <?php
-
-use App\App;
-use App\Table\ProductsTable;
-
-
-$beer = ProductsTable::find($_GET['id']);
+$app = App::getInstance();
+$beer = $app->getTable('Product')->find($_GET['id']);
 if ($beer === false){
-    App::notFound();
+    $app->notFound();
 }
 
-App::setTitle('Page du produit : '. $beer->Name);
+$app->title = $beer->Name;
 ?>
 
 
@@ -20,12 +16,12 @@ App::setTitle('Page du produit : '. $beer->Name);
         <H1><?= $beer->Name; ?></H1>
         <p><em><?= $beer->categorie; ?></em></p>
         <p><?= $beer->Desc; ?></p>
-        <a href="index.php?p=home">Retour au menu</a>
+        <a href="javascript:history.go(-1)">Retour</a>
 
     </div>   
     <div class="col-4">
         <ul>
-            <?php foreach (\App\Table\CategoriesTable::all() as $categorie): ?>
+            <?php foreach (App::getInstance()->getTable('Category')->all() as $categorie): ?>
                 
                 <li><a href="<?= $categorie->url; ?>"><?= $categorie->Name; ?></a></li>
             

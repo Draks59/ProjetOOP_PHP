@@ -10,16 +10,16 @@
     <script src="assets/js/jquery-3.6.1.min.js" defer></script>
     <script src="assets/js/bootstrap.bundle.js" defer></script>        
     <script src="assets/js/scripts.js" defer></script>
-    <title>EN CONSTRUCTION</title>
+    <title><?= App::getInstance()->title; ?></title>
   </head>
   <body>
-    <?php require '../pages/templates/_partials/_nav.html'; ?>
+    <?php require '../templates/_partials/_nav.html'; ?>
         <div class="starter-template">
           <?= $content; ?>  
         </div>
     <?php 
-      require '../pages/templates/_partials/_footer.html';
-      require '../pages/templates/_partials/_popup.html';
+      require '../templates/_partials/_footer.html';
+      require '../templates/_partials/_popup.html';
      ?>
   </body>
 </html>
