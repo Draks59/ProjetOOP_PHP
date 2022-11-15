@@ -1,0 +1,3 @@
+<h1>
+    /!\ ERREUR 404 EN CONSTRUCTION /!\
+</h1>

@@ -12,26 +12,29 @@ if (isset($_GET['p'])){
 ob_start();
 switch ($p) {
     case 'home':
-        require ROOT . '/templates/home.php';
+        require ROOT . '/pages/templates/home.php';
         break;
     case 'menu':
-        require ROOT . '/templates/menu.php';
+        require ROOT . '/pages/products/menu.php';
         break;
     case 'products.show':
-        require ROOT . '/templates/products/show.php';
+        require ROOT . '/pages/products/show.php';
         break;
     case 'products.category':
-        require ROOT . '/templates/products/category.php';
+        require ROOT . '/pages/products/category.php';
         break;
     case 'locate':
-        require ROOT . '/templates/locate.php';
+        require ROOT . '/pages/locate/locate.php';
         break;  
     case 'contact':
-        require ROOT . '/templates/contact.php';
-        break;                
+        require ROOT . '/pages/contact/contact.php';
+        break;   
+    case 'login':
+        require ROOT . '/pages/users/login.php';
+        break;               
     case '404':
-        require ROOT . '/templates/404.php';
+        require ROOT . '/pages/templates/404.php';
         break;
 }
 $content = ob_get_clean();
-require ROOT . '/templates/default.php';
+require ROOT . '/pages/templates/default.php';

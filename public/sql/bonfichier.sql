@@ -218,10 +218,10 @@ COMMIT;
 
 
 CREATE TABLE
-    if not EXISTS `Admin` (
-        `ID` int(11) NOT NULL,
-        `Login` varchar(255) NOT NULL,
-        `Pwd` varchar(255) NOT NULL
+    if not EXISTS `users` (
+        `id` int(11) NOT NULL,
+        `username` varchar(255) NOT NULL,
+        `password` varchar(255) NOT NULL
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -231,9 +231,9 @@ CREATE TABLE
 --
 
 INSERT INTO
-    `Admin` (
-        `ID`,
-        `Login`,
-        `Pwd`
+    `users` (
+        `id`,
+        `username`,
+        `password`
     )
 VALUES (1, 'admin', 'admin');

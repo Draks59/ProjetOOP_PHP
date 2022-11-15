@@ -13,13 +13,13 @@
     <title><?= App::getInstance()->title; ?></title>
   </head>
   <body>
-    <?php require '../templates/_partials/_nav.html'; ?>
+    <?php require ROOT . '/pages/templates/_partials/_nav.html'; ?>
         <div class="starter-template">
           <?= $content; ?>  
         </div>
     <?php 
-      require '../templates/_partials/_footer.html';
-      require '../templates/_partials/_popup.html';
+      require ROOT . '/pages/templates/_partials/_footer.html';
+      require ROOT . '/pages/templates/_partials/_popup.html';
      ?>
   </body>
 </html>

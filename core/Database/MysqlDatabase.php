@@ -3,7 +3,7 @@ namespace Core\Database;
 
 use App;
 use \PDO;
-class MysqlDatabase extends Database {
+class MySqlDatabase extends Database {
 
     private $db_name;
     private $db_user;
@@ -49,8 +49,13 @@ class MysqlDatabase extends Database {
         return $data;
     }
 
-    public function prepare($statement, $attributes, $class_name, $one = false){
+    public function prepare($statement, $attributes, $class_name = null, $one = false){
         $req = $this->getPDO()->prepare($statement);
+        if($class_name === null){
+            $req->setFetchMode(PDO::FETCH_OBJ);
+        }else {
+        $req->setFetchMode(PDO::FETCH_CLASS, $class_name);
+        }
         $req->execute($attributes);
         $req->setFetchMode(PDO::FETCH_CLASS, $class_name);
 
