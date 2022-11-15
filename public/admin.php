@@ -28,8 +28,11 @@ switch ($p) {
     case 'menu':
         require ROOT . '/pages/admin/products/menu.php';
         break;
-    case 'products.show':
-        require ROOT . '/pages/admin/products/show.php';
+    case 'products.edit':
+        require ROOT . '/pages/admin/products/edit.php';
+        break;
+    case 'products.add':
+        require ROOT . '/pages/admin/products/add.php';
         break;
     case 'products.category':
         require ROOT . '/pages/admin/products/category.php';

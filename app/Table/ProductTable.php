@@ -5,7 +5,7 @@ use Core\Table\Table;
 
     protected $table = "products";
 
-    public function find($id){
+    public function findWithCategory($id){
         return $this->query("
         SELECT products.ID, products.Name, products.Desc, products.Photo, categories.Name as categorie 
         FROM products

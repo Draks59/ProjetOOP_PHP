@@ -27,6 +27,27 @@ use Core\Database\MysqlDatabase;
             ", [$id], true);
     }
 
+    public function update($id, $fields){
+        $sql_parts = [];
+        $attributes = [];
+        foreach($fields as $k => $v){
+            $sql_parts[] = "`$k` = ?";
+            $attributes[] = $v;
+        }
+        $attributes[]= $id;
+        $sql_part = implode(', ', $sql_parts);
+        return $this->db->prepare("UPDATE {$this->table} SET $sql_part WHERE ID =?", $attributes);
+    }
+
+    public function list($key, $value){
+        $records = $this->all();
+        $return = [];
+        foreach($records as $v){
+            $return[$v->$key] = $v->$value;
+        }
+        return $return;
+    }
+
     public function query($statement, $attributes = null, $one = false){
         
         if ($attributes){

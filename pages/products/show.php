@@ -1,6 +1,6 @@
 <?php
 $app = App::getInstance();
-$beer = $app->getTable('Product')->find($_GET['id']);
+$beer = $app->getTable('Product')->findWithCategory($_GET['id']);
 if ($beer === false){
     $app->notFound();
 }
