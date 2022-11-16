@@ -2,20 +2,22 @@
 $app = App::getInstance();
 $productTable = $app->getTable('Product');
 if(!empty($_POST)){
-    $result = $productTable->update($_GET['ID'], [
+    $result = $productTable->create([
         'Name' => $_POST['Name'],
         'Desc' => $_POST['Desc'],
         'Photo' => $_POST['Photo'],
         'Cat_ID' => $_POST['Cat_ID']
     ]);
+
+    $categories = $app->getTable('Category')->list('ID', 'Name');
+    $form = new \Core\HTML\BootstrapForm();
+
     if($result){
         ?>
-        <div class="alert alert-success">L'article a bien été ajouté</div>
+        <div class="alert alert-success">L'article <?= $_POST['Name']; ?> dans la categorie <?= $categories->Name; ?> a bien été ajouté</div>
         <?php
     }
 }
-$categories = $app->getTable('Category')->list('ID', 'Name');
-$form = new \Core\HTML\BootstrapForm($_POST);
 ?>
 
 <form method="post">
@@ -24,4 +26,5 @@ $form = new \Core\HTML\BootstrapForm($_POST);
     <?= $form->select('Cat_ID', 'Catégorie', $categories); ?>
     <?= $form->input('Photo', 'Photo du produit'); ?>
     <button class="btn btn-primary">Ajouter</button>
+    <a href="admin.php" class="btn btn-secondary">Retour au menu</a>
 </form>

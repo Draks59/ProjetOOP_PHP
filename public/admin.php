@@ -22,17 +22,17 @@ if (!$auth->logged()){
 
 ob_start();
 switch ($p) {
-    case 'home':
+    default :
         require ROOT . '/pages/admin/products/index.php';
         break;
-    case 'menu':
-        require ROOT . '/pages/admin/products/menu.php';
-        break;
     case 'products.edit':
-        require ROOT . '/pages/admin/products/edit.php';
+        require ROOT . '/pages/admin/products/update.php';
         break;
     case 'products.add':
-        require ROOT . '/pages/admin/products/add.php';
+        require ROOT . '/pages/admin/products/create.php';
+        break;
+    case 'products.delete':
+        require ROOT . '/pages/admin/products/delete.php';
         break;
     case 'products.category':
         require ROOT . '/pages/admin/products/category.php';

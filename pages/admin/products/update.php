@@ -25,4 +25,5 @@ $form = new \Core\HTML\BootstrapForm($product);
     <?= $form->select('Cat_ID', 'Catégorie', $categories); ?>
     <?= $form->input('Photo', 'Photo du produit'); ?>
     <button class="btn btn-primary">Sauvegarder</button>
+    <a href="admin.php" class="btn btn-secondary">Retour au menu</a>
 </form>

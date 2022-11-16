@@ -20,6 +20,7 @@ $products = App::getInstance()->getTable('product')->all();
                 <td><?= $product->ID ?></td>
                 <td><?= $product->Name ?></td>
                 <td><a href="?p=products.edit&ID=<?= $product->ID?>" class="btn btn-primary">Editer</a></td>
+                <td><a href="?p=products.delete&ID=<?= $product->ID?>" class="btn btn-danger">Supprimer</a></td>
             </tr>
         
         <?php endforeach;?>
