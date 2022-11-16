@@ -1,9 +1,6 @@
 <div class="row">
     <div class="col-8">
-        <?php
-
-
-            foreach (App::getInstance()->getTable('Product')->last() as $product): ?>
+        <?php foreach ($products as $product): ?>
             
             <h2><a href="<?= $product->url; ?>"><?= $product->Name; ?></a></h2>
 
@@ -16,7 +13,7 @@
     </div>   
     <div class="col-4">
         <ul>
-            <?php foreach (App::getInstance()->getTable('Category')->all() as $category): ?>
+            <?php foreach ($categories as $category): ?>
                 
                 <li><a href="<?= $category->url; ?>"><?= $category->Name; ?></a></li>
             

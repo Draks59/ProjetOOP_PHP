@@ -23,21 +23,21 @@ if (!$auth->logged()){
 ob_start();
 switch ($p) {
     default :
-        require ROOT . '/pages/admin/products/index.php';
+        require ROOT . '/app/templates/admin/products/index.php';
         break;
     case 'products.edit':
-        require ROOT . '/pages/admin/products/update.php';
+        require ROOT . '/app/templates/admin/products/update.php';
         break;
     case 'products.add':
-        require ROOT . '/pages/admin/products/create.php';
+        require ROOT . '/app/templates/admin/products/create.php';
         break;
     case 'products.delete':
-        require ROOT . '/pages/admin/products/delete.php';
+        require ROOT . '/app/templates/admin/products/delete.php';
         break;
     case 'products.category':
-        require ROOT . '/pages/admin/products/category.php';
+        require ROOT . '/app/templates/admin/products/category.php';
         break;
 
 }
 $content = ob_get_clean();
-require ROOT . '/pages/templates/default.php';
+require ROOT . '/app/templates/default.php';

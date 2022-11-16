@@ -1,4 +1,7 @@
 <?php
+
+use App\Controller\AppController;
+
 define('ROOT',dirname(__DIR__));
 require ROOT . '/app/App.php';
 App::load();
@@ -9,32 +12,37 @@ if (isset($_GET['p'])){
     $p = 'home';
 }
 
-ob_start();
 switch ($p) {
     case 'home':
-        require ROOT . '/pages/templates/home.php';
+        $controller = new AppController();
+        $controller->index();
         break;
     case 'menu':
-        require ROOT . '/pages/products/menu.php';
+        $controller = new \App\Controller\ProductsController();
+        $controller->index();
         break;
     case 'products.show':
-        require ROOT . '/pages/products/show.php';
+        $controller = new \App\Controller\ProductsController();
+        $controller->show();
         break;
     case 'products.category':
-        require ROOT . '/pages/products/category.php';
+        $controller = new \App\Controller\ProductsController();
+        $controller->category();
         break;
     case 'locate':
-        require ROOT . '/pages/locate/locate.php';
+        $controller = new \App\Controller\LocateController();
+        $controller->index();
         break;  
     case 'contact':
-        require ROOT . '/pages/contact/contact.php';
+        $controller = new \App\Controller\ContactController();
+        $controller->index();
         break;   
     case 'login':
-        require ROOT . '/pages/users/login.php';
+        $controller = new \App\Controller\UsersController();
+        $controller->login();
         break;               
     case '404':
-        require ROOT . '/pages/templates/404.php';
+        $controller = new AppController();
+        $controller->index();
         break;
 }
-$content = ob_get_clean();
-require ROOT . '/pages/templates/default.php';

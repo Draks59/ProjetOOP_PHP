@@ -1,6 +1,3 @@
-<?php 
-$products = App::getInstance()->getTable('product')->all();
-?>
 <H1>Administrer les produits</H1>
 <p>
     <a href="?p=products.add" class="btn btn-success">Ajouter</a>
