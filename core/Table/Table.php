@@ -54,7 +54,7 @@ use Core\Database\MysqlDatabase;
         return $this->db->prepare("UPDATE {$this->table} SET $sql_part WHERE ID =?", $attributes);
     }
 
-    public function liste($key, $value){
+    public function list($key, $value){
         $records = $this->all();
         $return = [];
         foreach($records as $v){

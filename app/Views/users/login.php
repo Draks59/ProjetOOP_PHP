@@ -1,22 +1,6 @@
-<?php
-
-use Core\Auth\DBAuth;
-
-if(!empty($_POST)){
-    $auth = new DBAuth(App::getInstance()->getDb());
-    if($auth->login($_POST['username'], $_POST['password'])){
-        header('Location: admin.php');
-    }
-    else{
-        ?>
-        <div class="alert alert-danger"> Identifiants incorrect</div>
-        <?php
-    }
-}
-$form = new \Core\HTML\BootstrapForm($_POST);
-
-?>
-
+<?php if ($success):?>
+    <div class="alert alert-danger"> Identifiants incorrect</div>
+<?php endif; ?>
 <form action="#" method="post">
     <?= $form->input('username', 'Nom d\'utilisateur'); ?>
     <?= $form->input('password', 'Mot de passe', ['type' => 'password']); ?>

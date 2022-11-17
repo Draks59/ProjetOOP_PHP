@@ -3,8 +3,9 @@ CREATE DATABASE IF NOT EXISTS `Beers`DEFAULT CHARACTER SET latin1;
 USE `Beers`;
 
 CREATE TABLE IF NOT EXISTS `categories`(
-        `ID` int(11) NOT NULL,
-        `Name` varchar(100) NOT NULL
+        `ID` int(11) NOT NULL AUTO_INCREMENT,
+        `Name` varchar(100) NOT NULL,
+        PRIMARY KEY (`ID`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -20,11 +21,12 @@ INSERT INTO `categories` (`ID`, `Name`) VALUES
 
 
 CREATE TABLE IF NOT EXISTS `products`(
-        `ID` INT  NOT NULL,
+        `ID` INT  NOT NULL AUTO_INCREMENT,
         `Name` varchar(60) NOT NULL DEFAULT '',
         `Cat_ID` INT NOT NULL,
         `Desc` varchar(900) DEFAULT NULL,
-        `Photo` varchar(255) DEFAULT NULL
+        `Photo` varchar(255) DEFAULT NULL,
+        PRIMARY KEY (`ID`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO
@@ -196,32 +198,21 @@ VALUES (
         "biere25.png"
     );
 
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `product`
---
-ALTER TABLE `products`
-  ADD PRIMARY KEY (`ID`);
---
--- Contraintes pour les tables déchargées
---
-
 --
 -- Contraintes pour la table `product`
 --
 
 ALTER TABLE `products`
-  ADD CONSTRAINT `FK_products` FOREIGN KEY (`Cat_ID`) REFERENCES `categories` (`id`);
+  ADD CONSTRAINT `FK_products` FOREIGN KEY (`Cat_ID`) REFERENCES `categories` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 
 CREATE TABLE
     if not EXISTS `users` (
-        `id` int(11) NOT NULL,
+        `id` int(11) NOT NULL AUTO_INCREMENT,
         `username` varchar(255) NOT NULL,
-        `password` varchar(255) NOT NULL
+        `password` varchar(255) NOT NULL,
+        PRIMARY KEY (`id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
