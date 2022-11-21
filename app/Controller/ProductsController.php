@@ -30,11 +30,10 @@ class ProductsController extends AppController{
 
     public function show(){
         $products = $this->Product->findWithCategory($_GET['id']);
-        $categories = $this->Category->all();
         if ($products === false){
             $this->notFound();
         }
-        $this->render('products.show', compact('products', 'categories'));
+        $this->render('products.show', compact('products'));
 
     }
 }

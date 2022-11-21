@@ -1,9 +1,4 @@
 <?php
-use App\Controller\admin\AppController;
-use App\Controller\Admin\CategoriesController;
-use App\Controller\admin\ProductsController;
-use Core\Controller\Controller;
-
 define('ROOT',dirname(__DIR__));
 require ROOT . '/app/App.php';
 App::load();

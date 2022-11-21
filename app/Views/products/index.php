@@ -1,23 +1,15 @@
-<div class="row">
-    <div class="col-8">
-        <?php foreach ($products as $product): ?>
-            
-            <h2><a href="<?= $product->url; ?>"><?= $product->Name; ?></a></h2>
-
-            <h3> <?= $product->categorie;  ?></h3>
-
-            <p> <?= $product->description;  ?></p>
-            
-            <?php endforeach; ?>
-
-    </div>   
-    <div class="col-4">
-        <ul>
-            <?php foreach ($categories as $category): ?>
-                
-                <li><a href="<?= $category->url; ?>"><?= $category->Name; ?></a></li>
-            
-            <?php endforeach; ?>
-        </ul>
+<section class="row">
+    <div class="col-12">
+        <h2>BIERE</h2>
     </div>
-</div>
+    <?php foreach ($categories as $category): ?>      
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title"><?= $category->Name; ?></h5>
+                    <a href="<?= $category->url; ?>" class="btn btn-primary">Voir les produits</a>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+</section>

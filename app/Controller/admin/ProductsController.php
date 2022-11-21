@@ -10,8 +10,14 @@ class ProductsController extends AppController{
     }
 
     public function index(){
-        $products =  $this->Product->all();
-        $this->render('admin.products.index', compact('products'));
+        if(!empty($_POST['Cat_ID'])){
+            $products =  $this->Product->lastByCategory($_POST['Cat_ID']);
+        }else { 
+            $products =  $this->Product->allWithCategory();
+        }
+        $categories = $this->Category->list('ID', 'Name');
+        $form = new \Core\HTML\BootstrapForm($_POST);
+        $this->render('admin.products.index', compact('products', 'categories', 'form'));
     }
 
     public function create(){

@@ -14,6 +14,24 @@ use Core\Table\Table;
         WHERE products.ID = ?
         ", [$id], true);
     }
+
+    public function allWithCategory(){
+        return $this->query("
+        SELECT products.ID, products.Name, products.Desc, products.Photo, categories.Name as categorie 
+        FROM products
+        LEFT JOIN categories 
+            ON Cat_ID = categories.ID
+        ");
+    }
+    public function allByCategory(){
+        return $this->query("
+        SELECT products.ID, products.Name, products.Desc, products.Photo, categories.Name as categorie 
+        FROM products
+        LEFT JOIN categories 
+            ON Cat_ID = categories.ID
+        ORDER BY categorie
+        ");
+    }
     public function last(){
         return $this->query("
         SELECT products.ID, products.Name, products.Desc, products.Photo, categories.Name as categorie 
@@ -22,7 +40,7 @@ use Core\Table\Table;
             ON Cat_ID = categories.ID
         ");
     }
-    public function LastByCategory($Cat_ID){
+    public function lastByCategory($Cat_ID){
         return $this->query("
         SELECT products.ID, products.Name, products.Desc, products.Photo, categories.Name as categorie 
         FROM products

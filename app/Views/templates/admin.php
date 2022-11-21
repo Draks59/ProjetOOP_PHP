@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <!-- fichier js -->
     <script src="assets/js/jquery-3.6.1.min.js" defer></script>
-    <script src="assets/js/bootstrap.bundle.js" defer></script>        
+    <script src="assets/js/bootstrap.bundle.min.js" defer></script>        
     <script src="assets/js/scripts.js" defer></script>
     <title><?= App::getInstance()->title; ?></title>
   </head>
   <body>
     <?php require ROOT . '/app/Views/templates/_partials/_navadmin.html'; ?>
-        <div class="starter-template">
+        <div class="container">
           <?= $content; ?>  
         </div>
     <?php 

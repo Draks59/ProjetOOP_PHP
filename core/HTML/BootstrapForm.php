@@ -20,9 +20,13 @@ class BootstrapForm extends Form {
         return $this->surround($label . $input);
     }
 
-    public function select($name, $label, $options){
+    public function select($name, $label, $options, $js = false){
+        if ($js){
+            $input= '<select onchange="this.form.submit()" class="form-control" name="' . $name . '">';
+        }else {
+            $input = '<select class="form-control" name="' . $name . '">';
+        }
         $label = '<label class="form-label">' . $label . '</label>';
-        $input = '<select class="form-control" name="' . $name . '">';
         foreach($options as $k => $v){
             $attributes = '';
             if($k == $this->getValue($name)){

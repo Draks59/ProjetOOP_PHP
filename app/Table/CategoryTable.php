@@ -6,7 +6,7 @@ class CategoryTable extends Table{
     protected $table = "categories";
     
     public function getUrl(){
-        return 'index.php?p=categorie&id=' . $this->ID;
+        return 'index.php?p=products.show&id=' . $this->ID;
     }
 
 }
