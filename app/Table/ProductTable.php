@@ -1,11 +1,16 @@
-<?php 
+<?php
+
 namespace App\Table;
+
 use Core\Table\Table;
- class ProductTable extends Table{
+
+class ProductTable extends Table
+{
 
     protected $table = "products";
 
-    public function findWithCategory($id){
+    public function findWithCategory($id)
+    {
         return $this->query("
         SELECT products.ID, products.Name, products.Desc, products.Photo, categories.Name as categorie 
         FROM products
@@ -15,7 +20,8 @@ use Core\Table\Table;
         ", [$id], true);
     }
 
-    public function allWithCategory(){
+    public function allWithCategory()
+    {
         return $this->query("
         SELECT products.ID, products.Name, products.Desc, products.Photo, categories.Name as categorie 
         FROM products
@@ -23,7 +29,8 @@ use Core\Table\Table;
             ON Cat_ID = categories.ID
         ");
     }
-    public function allByCategory(){
+    public function allByCategory()
+    {
         return $this->query("
         SELECT products.ID, products.Name, products.Desc, products.Photo, categories.Name as categorie 
         FROM products
@@ -32,7 +39,8 @@ use Core\Table\Table;
         ORDER BY categorie
         ");
     }
-    public function last(){
+    public function last()
+    {
         return $this->query("
         SELECT products.ID, products.Name, products.Desc, products.Photo, categories.Name as categorie 
         FROM products
@@ -40,7 +48,8 @@ use Core\Table\Table;
             ON Cat_ID = categories.ID
         ");
     }
-    public function lastByCategory($Cat_ID){
+    public function lastByCategory($Cat_ID)
+    {
         return $this->query("
         SELECT products.ID, products.Name, products.Desc, products.Photo, categories.Name as categorie 
         FROM products
@@ -49,5 +58,4 @@ use Core\Table\Table;
         WHERE Cat_ID = ?
         ", [$Cat_ID]);
     }
-    
 }

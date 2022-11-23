@@ -1,4 +1,4 @@
-<?php if($result):?>
+<?php if ($result) : ?>
     <div class="alert alert-success">L'article a bien été edité</div>
 <?php endif; ?>
 

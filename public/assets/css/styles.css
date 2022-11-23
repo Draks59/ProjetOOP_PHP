@@ -1,57 +1,75 @@
-.logoimg{
-    max-width : 100px;
-    max-height : 100px;
-} 
-.btn_oui{
-    background-color: transparent;
-    color: rgb(0, 189, 0);
-    border-color: rgb(0, 189, 0);
-    font-family: 'Comic Sans MS', arial;
-    font-size: x-large;
-    width: 60px;
-    height: 35px;
+html,
+body {
+  height: 100%;
 }
-.form-popup{
-    margin: auto;
-    display: inline-block;
-    border: 5px solid yellow;
-    border-style: outset;
-    background-color: #DEA900;
-    padding: 20px 30px 50px 30px;
+
+#wrap {
+  min-height: 75%;
 }
-.btn_non{
-    background-color: transparent;
-    color: red;
-    border-color: red;
-    font-family: 'Comic Sans MS', arial;
-    font-size: x-large;
-    width: 60px;
-    height: 35px;
+#main {
+  overflow: auto;
+  padding-bottom: 150px; /* this needs to be bigger than footer height*/
 }
-#container_popup{
-    width: 100%;
-    text-align: center;
-    top: -700px;
-    position: relative;
-    z-index: 9;
+
+.footer {
+  position: relative;
+  margin-top: -150px; /* negative value of footer height */
+  height: 150px;
+  clear: both;
+  padding-top: 20px;
 }
-.form-container{
-    font-size: xx-large;
+
+.logoimg {
+  max-width: 100px;
+  max-height: 100px;
+}
+.btn_oui {
+  background-color: transparent;
+  color: rgb(0, 189, 0);
+  border-color: rgb(0, 189, 0);
+  font-family: "Comic Sans MS", arial;
+  font-size: x-large;
+  width: 60px;
+  height: 35px;
+}
+.form-popup {
+  margin: auto;
+  display: inline-block;
+  border: 5px solid yellow;
+  border-style: outset;
+  background-color: #dea900;
+  padding: 20px 30px 50px 30px;
+}
+.btn_non {
+  background-color: transparent;
+  color: red;
+  border-color: red;
+  font-family: "Comic Sans MS", arial;
+  font-size: x-large;
+  width: 60px;
+  height: 35px;
+}
+#container_popup {
+  width: 100%;
+  text-align: center;
+  top: -700px;
+  position: relative;
+  z-index: 9;
+}
+.form-container {
+  font-size: xx-large;
 }
 .overlay-verify {
-    position: fixed;
-    backdrop-filter: blur(4px);
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 3;
-  }
-  
+  position: fixed;
+  backdrop-filter: blur(4px);
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
 
-  .horaires 
-  {
-
-    border:rgb(42, 44, 43);
-    border-radius: 30px;
-  }
+.horaires {
+  border: rgb(42, 44, 43);
+  border-radius: 30px;
+}

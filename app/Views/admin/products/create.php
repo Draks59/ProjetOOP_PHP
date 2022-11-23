@@ -1,4 +1,4 @@
-<?php if($result): ?>
+<?php if ($result) : ?>
     <div class="alert alert-success">L'article <?= $_POST['Name']; ?> a bien été ajouté</div>
 <?php endif; ?>
 

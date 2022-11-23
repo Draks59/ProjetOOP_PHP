@@ -1,4 +1,4 @@
-<?php if ($success):?>
+<?php if ($error) : ?>
     <div class="alert alert-danger"> Identifiants incorrect</div>
 <?php endif; ?>
 <form action="#" method="post">

@@ -4,12 +4,11 @@ namespace App\Controller;
 
 use Core\Controller\Controller;
 
-class ContactController extends AppController
+class ReservationController extends AppController
 {
 
     public function index()
     {
-
-        $this->render('contact.index');
+        $this->render('reservation.index');
     }
 }

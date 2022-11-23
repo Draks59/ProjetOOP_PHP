@@ -1,12 +1,15 @@
 <?php
+
 namespace Core\Controller;
 
-class Controller {
+class Controller
+{
 
     protected $viewPath;
     protected $template;
 
-    protected function render($view, $var = []){
+    protected function render($view, $var = [])
+    {
         ob_start();
         extract($var);
         require $this->viewPath . str_replace('.', '/', $view) . '.php';
@@ -14,13 +17,15 @@ class Controller {
         require($this->viewPath . 'templates/' . $this->template . '.php');
     }
 
-    protected function forbidden(){
+    protected function forbidden()
+    {
         header("HTTP/1.0 403 Forbidden");
         die('Acces Interdit');
     }
 
-    protected function notFound(){
-            header("HTTP/1.0 404 Not Found");
-            die('Page introuvable');
+    protected function notFound()
+    {
+        header("HTTP/1.0 404 Not Found");
+        die('Page introuvable');
     }
 }

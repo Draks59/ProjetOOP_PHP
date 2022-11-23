@@ -1,17 +1,20 @@
-<?php 
+<?php
+
 namespace App\Entity;
 
 use Core\Entity\Entity;
 
-class ProductEntity extends Entity {
+class ProductEntity extends Entity
+{
 
-    public function getUrl(){
+    public function getUrl()
+    {
         return 'index.php?p=products.show&id=' . $this->ID;
     }
 
-    public function getDescription(){
+    public function getDescription()
+    {
         $html = '<p>' . substr($this->Desc, 0, 150) . '...</p>';
         return  $html;
     }
-
 }
