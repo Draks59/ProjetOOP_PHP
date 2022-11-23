@@ -1,4 +1,5 @@
 <?php
+/* Returning an array of the database information. */
 return array(
     "db_user" => "root",
     "db_pwd" => "toor",

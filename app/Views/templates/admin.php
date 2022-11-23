@@ -23,7 +23,6 @@
   </div>
   <?php
   require ROOT . '/app/Views/templates/_partials/_footer.html';
-  /*       require ROOT . '/app/Views/templates/_partials/_popup.html'; */
   ?>
 </body>
 

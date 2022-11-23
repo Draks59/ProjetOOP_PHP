@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 class ReservationController extends AppController
 {
 
     public function index()
     {
-        $this->render('reservation.index');
+        $this->render('admin.reservation.index');
     }
 }

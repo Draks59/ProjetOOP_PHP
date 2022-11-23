@@ -18,6 +18,13 @@ class Form
         return "<{$this->surround}>{$html}</{$this->surround}>";
     }
 
+/**
+ * If the data is an object, return the property, otherwise return the array value
+ * 
+ * @param index The name of the field to get the value for.
+ * 
+ * @return The value of the index.
+ */
     protected function getValue($index)
     {
         if (is_object($this->data)) {
@@ -25,6 +32,7 @@ class Form
         }
         return isset($this->data[$index]) ? $this->data[$index] : null;
     }
+    
     public function input($name, $label, $options = [])
     {
         $type = isset($options['type']) ? $options['type'] : 'text';

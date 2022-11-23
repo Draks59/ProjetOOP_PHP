@@ -2,8 +2,6 @@
 
 namespace App\Controller;
 
-use Core\Controller\Controller;
-
 class ContactController extends AppController
 {
 
