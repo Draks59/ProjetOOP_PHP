@@ -22,12 +22,12 @@ class ProductsController extends AppController
         $this->render('products.index', compact('products', 'categories'));
     }
 
-/**
- * It gets the category from the database, and if it doesn't exist, it calls the notFound() function.
- * If it does exist, it gets the products from the database, and then gets all the categories from the
- * database. Finally, it renders the category.php view, passing it the category, products, and
- * categories
- */
+    /**
+     * It gets the category from the database, and if it doesn't exist, it calls the notFound() function.
+     * If it does exist, it gets the products from the database, and then gets all the categories from the
+     * database. Finally, it renders the category.php view, passing it the category, products, and
+     * categories
+     */
     public function category()
     {
         $categorie = $this->Category->find($_GET['id']);
@@ -39,10 +39,10 @@ class ProductsController extends AppController
         $this->render('products.category', compact('categorie', 'products', 'categories'));
     }
 
-/**
- * It takes the id of a product, finds the product with that id, and then renders the show view with
- * the product.
- */
+    /**
+     * It takes the id of a product, finds the product with that id, and then renders the show view with
+     * the product.
+     */
     public function show()
     {
         $products = $this->Product->findWithCategory($_GET['id']);

@@ -8,12 +8,12 @@ use Core\Auth\DBAuth;
 class UsersController extends AppController
 {
 
-/**
- * If the user is logged in, redirect to the admin page. If the user is not logged in, check if the
- * user has submitted a login form. If the user has submitted a login form, check if the user is logged
- * in. If the user is logged in, redirect to the admin page. If the user is not logged in, display an
- * error message.
- */
+    /**
+     * If the user is logged in, redirect to the admin page. If the user is not logged in, check if the
+     * user has submitted a login form. If the user has submitted a login form, check if the user is logged
+     * in. If the user is logged in, redirect to the admin page. If the user is not logged in, display an
+     * error message.
+     */
     public function login()
     {
         $error = false;

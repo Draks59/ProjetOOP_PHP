@@ -3,7 +3,7 @@
         <h2>Liste des produits de la catégorie <?= $categorie->Name; ?></h2>
         <a href="index.php?p=products.index">Retour au menu</a>
     </div>
-    <?php foreach ($products as $product): ?>
+    <?php foreach ($products as $product) : ?>
         <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-3">
             <article class="card h-100">
                 <div class="card-body">

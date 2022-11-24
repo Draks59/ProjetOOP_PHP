@@ -10,9 +10,9 @@ class AppController extends \App\Controller\AppController
 
     protected $template = 'admin';
 
-/**
- * If the user is not logged in, then the user is forbidden from accessing the page.
- */
+    /**
+     * If the user is not logged in, then the user is forbidden from accessing the page.
+     */
     function __construct()
     {
         parent::__construct();

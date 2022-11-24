@@ -1,11 +1,11 @@
 <?php
-define('ROOT',dirname(__DIR__));
+define('ROOT', dirname(__DIR__));
 require ROOT . '/app/App.php';
 App::load();
 
 /* Checking if the url has a parameter called p. If it does, it sets the variable  to the value of
 the parameter. If it doesn't, it sets the variable  to 'App.index'. */
-if (isset($_GET['p'])){
+if (isset($_GET['p'])) {
     $p = $_GET['p'];
 } else {
     $p = 'App.index';
@@ -17,10 +17,16 @@ isn't, it sets the controller to the normal controller. It then sets the action 
 element of the array. It then creates a new instance of the controller and calls the action. */
 
 $p = explode('.', $p);
-if ($p[0] == 'admin'){
+if ($p[0] == 'admin') {
+    if (count($p) < 3) {
+        die('not_Found');
+    }
     $controller = '\App\Controller\Admin\\' . ucfirst($p[1]) . 'Controller';
     $action = $p[2];
-} else{
+} else {
+    if (count($p) < 2) {
+        die('not_Found');
+    }
     $controller = '\App\Controller\\' . ucfirst($p[0]) . 'Controller';
     $action = $p[1];
 }

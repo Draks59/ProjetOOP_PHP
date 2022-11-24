@@ -21,13 +21,13 @@ class Config
         $this->settings = require($file);
     }
 
-/**
- * If the key is not set, return null. Otherwise, return the value of the key.
- * 
- * @param key The key of the setting you want to get.
- * 
- * @return The value of the key in the array.
- */
+    /**
+     * If the key is not set, return null. Otherwise, return the value of the key.
+     * 
+     * @param key The key of the setting you want to get.
+     * 
+     * @return The value of the key in the array.
+     */
     public function get($key)
     {
 

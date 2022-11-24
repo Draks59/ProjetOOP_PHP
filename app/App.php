@@ -18,9 +18,9 @@ class App
         return self::$_instance;
     }
 
-/**
- * It starts a session, loads the app's autoloader, and then loads the core's autoloader.
- */
+    /**
+     * It starts a session, loads the app's autoloader, and then loads the core's autoloader.
+     */
     public static function load()
     {
         session_start();
@@ -31,25 +31,25 @@ class App
         Core\Autoloader::register();
     }
 
-/**
- * It takes a string as a parameter, and returns an instance of a class whose name is the string with
- * the first letter capitalized, and the word "Table" appended to it
- * 
- * @param name The name of the table you want to get.
- * 
- * @return A new instance of the class name that is being passed in.
- */
+    /**
+     * It takes a string as a parameter, and returns an instance of a class whose name is the string with
+     * the first letter capitalized, and the word "Table" appended to it
+     * 
+     * @param name The name of the table you want to get.
+     * 
+     * @return A new instance of the class name that is being passed in.
+     */
     public function getTable($name)
     {
         $class_name = '\\App\\Table\\' . ucfirst($name) . 'Table';
         return new $class_name($this->getDb());
     }
 
-/**
- * It returns a database connection object.
- * 
- * @return The database instance.
- */
+    /**
+     * It returns a database connection object.
+     * 
+     * @return The database instance.
+     */
     public function getDb()
     {
         $config = Config::getInstance(ROOT . '/config/config.php');
