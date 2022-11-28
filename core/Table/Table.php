@@ -41,7 +41,7 @@ class Table
         return $this->query("
             SELECT *
             FROM " . $this->table . "
-            WHERE Id = ?
+            WHERE id = ?
             ", [$id], true);
     }
 
@@ -74,7 +74,7 @@ class Table
     public function delete($id)
     {
 
-        return $this->db->prepare("DELETE FROM {$this->table} WHERE ID =?", $id);
+        return $this->db->prepare("DELETE FROM {$this->table} WHERE id =?", $id);
     }
 
     /**
@@ -95,7 +95,7 @@ class Table
         }
         $attributes[] = $id;
         $sql_part = implode(', ', $sql_parts);
-        return $this->db->prepare("UPDATE {$this->table} SET $sql_part WHERE ID =?", $attributes);
+        return $this->db->prepare("UPDATE {$this->table} SET $sql_part WHERE id =?", $attributes);
     }
 
     /**

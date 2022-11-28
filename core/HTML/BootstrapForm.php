@@ -20,14 +20,21 @@ class BootstrapForm extends Form
      * 
      * @return The label and the input.
      */
-    public function input($name, $label, $options = [])
+    public function input($name, $label, $required = false, $options = [])
     {
         $type = isset($options['type']) ? $options['type'] : 'text';
         $label = '<label class="form-label">' . $label . '</label>';
         if ($type === 'textarea') {
-            $input = '<textarea class="form-control" name="' . $name . '">' . $this->getValue($name) . '</textarea>';
+            $input1 = '<textarea class="form-control" name="' . $name . '"id="' . $name . '"';
+            $input2 = '>' . $this->getValue($name) . '</textarea>';
         } else {
-            $input = '<input type="' . $type . '" name="' . $name . '" value="' . $this->getValue($name) . '" class="form-control">';
+            $input1 = '<input type="' . $type . '" name="' . $name . '" id="' . $name . '" value="' . $this->getValue($name) . '" class="form-control" ';
+            $input2 = '>';
+        }
+        if ($required = true) {
+            $input = $input1 . " required " . $input2;
+        } else {
+            $input = $input1 . $input2;
         }
 
         return $this->surround($label . $input);

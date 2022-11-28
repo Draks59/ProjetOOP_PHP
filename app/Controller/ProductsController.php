@@ -17,7 +17,7 @@ class ProductsController extends AppController
     public function index()
     {
 
-        $products =  $this->Product->last();
+        $products =  $this->Product->allWithCategory();
         $categories = $this->Category->all();
         $this->render('products.index', compact('products', 'categories'));
     }
@@ -34,7 +34,7 @@ class ProductsController extends AppController
         if ($categorie === false) {
             $this->notFound();
         }
-        $products = $this->Product->lastByCategory($_GET['id']);
+        $products = $this->Product->AllByCategory($_GET['id']);
         $categories = $this->Category->all();
         $this->render('products.category', compact('categorie', 'products', 'categories'));
     }

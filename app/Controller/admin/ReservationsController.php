@@ -2,19 +2,19 @@
 
 namespace App\Controller\Admin;
 
-class CategoriesController extends AppController
+class ReservationsController extends AppController
 {
 
     public function __construct()
     {
         parent::__construct();
-        $this->loadModel('Category');
+        $this->loadModel('Reservation');
     }
 
     public function index()
     {
-        $categories =  $this->Category->all();
-        $this->render('admin.categories.index', compact('categories'));
+        $reservations =  $this->Reservation->all();
+        $this->render('admin.reservations.index', compact('reservations'));
     }
 
     /**
@@ -24,12 +24,18 @@ class CategoriesController extends AppController
     {
         $form = new \Core\HTML\BootstrapForm();
         if (!empty($_POST)) {
-            $result = $this->Category->create([
-                'name' => $_POST['name']
+            $result = $this->Reservation->create([
+                'name' => $_POST['name'],
+                'firstname' => $_POST['firstname'],
+                'phone' => $_POST['phone'],
+                'mail' => $_POST['mail'],
+                'date' => $_POST['date'],
+                'nb' => $_POST['nb'],
+                'message' => $_POST['message']
             ]);
             return $this->index();
         }
-        $this->render('admin.categories.create', compact('form'));
+        $this->render('admin.reservations.create', compact('form'));
     }
 
     /**
@@ -50,27 +56,34 @@ class CategoriesController extends AppController
      */
     public function update()
     {
-        $categories =  $this->Category->find($_GET['id']);
-        if ($categories === false) {
+        $result = '';
+        $reservations =  $this->Reservation->find($_GET['id']);
+        if ($reservations === false) {
             $this->notFound();
         }
         if (!empty($_POST)) {
-            $result = $this->Category->update($_GET['id'], [
+            $result = $this->Reservation->update($_GET['id'], [
                 'name' => $_POST['name'],
+                'firstname' => $_POST['firstname'],
+                'phone' => $_POST['phone'],
+                'mail' => $_POST['mail'],
+                'date' => $_POST['date'],
+                'nb' => $_POST['nb'],
+                'message' => $_POST['message']
             ]);
             return $this->index();
         }
-        $form = new \Core\HTML\BootstrapForm($categories);
-        $this->render('admin.categories.update', compact('form', 'categories'));
+        $form = new \Core\HTML\BootstrapForm($reservations);
+        $this->render('admin.reservations.update', compact('result', 'form', 'reservations'));
     }
 
     /**
-     * It deletes a category from the database.
+     * It deletes a Reservation from the database.
      */
     public function delete()
     {
         if (!empty($_POST)) {
-            $this->Category->delete([$_POST['id']]);
+            $this->Reservation->delete([$_POST['id']]);
             $this->index();
         }
     }
