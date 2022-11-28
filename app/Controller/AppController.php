@@ -13,6 +13,7 @@ class AppController extends Controller
     function __construct()
     {
         $this->viewPath = ROOT . "/app/Views/";
+        $this->loadModel('Photo');
     }
 
     /**
@@ -28,7 +29,7 @@ class AppController extends Controller
 
     public function index()
     {
-
-        $this->render('templates.index');
+        $photos = $this->Photo->all();
+        $this->render('templates.index', compact('photos'));
     }
 }

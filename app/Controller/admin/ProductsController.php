@@ -10,6 +10,7 @@ class ProductsController extends AppController
         parent::__construct();
         $this->loadModel('Product');
         $this->loadModel('Category');
+        $this->loadModel('Photo');
     }
 
     /**
@@ -18,12 +19,12 @@ class ProductsController extends AppController
      */
     public function index()
     {
-        if (!empty($_POST['Cat_ID'])) {
-            $products =  $this->Product->lastByCategory($_POST['Cat_ID']);
+        if (!empty($_POST['cat_id'])) {
+            $products =  $this->Product->allByCategory($_POST['cat_id']);
         } else {
             $products =  $this->Product->allWithCategory();
         }
-        $categories = $this->Category->list('ID', 'Name');
+        $categories = $this->Category->list('id', 'name');
         $form = new \Core\HTML\BootstrapForm($_POST);
         $this->render('admin.products.index', compact('products', 'categories', 'form'));
     }
@@ -33,18 +34,19 @@ class ProductsController extends AppController
      */
     public function create()
     {
-        $result = '';
-        $categories = $this->Category->list('ID', 'Name');
+        $photos = $this->Photo->list('id', 'name');
+        $categories = $this->Category->list('id', 'name');
         $form = new \Core\HTML\BootstrapForm();
         if (!empty($_POST)) {
             $result = $this->Product->create([
-                'Name' => $_POST['Name'],
-                'Desc' => $_POST['Desc'],
-                'Photo' => $_POST['Photo'],
-                'Cat_ID' => $_POST['Cat_ID']
+                'name' => $_POST['name'],
+                'desc' => $_POST['desc'],
+                'photo_id' => $_POST['photo_id'],
+                'cat_id' => $_POST['cat_id']
             ]);
+            return $this->index();
         }
-        $this->render('admin.products.create', compact('categories', 'result', 'form'));
+        $this->render('admin.products.create', compact('categories', 'form', 'photos'));
     }
 
     /**
@@ -64,22 +66,23 @@ class ProductsController extends AppController
      */
     public function update()
     {
-        $result = '';
-        $product =  $this->Product->find($_GET['ID']);
+        $product =  $this->Product->find($_GET['id']);
         if ($product === false) {
             $this->notFound();
         }
         if (!empty($_POST)) {
-            $result = $this->Product->update($_GET['ID'], [
-                'Name' => $_POST['Name'],
-                'Desc' => $_POST['Desc'],
-                'Photo' => $_POST['Photo'],
-                'Cat_ID' => $_POST['Cat_ID']
+            $result = $this->Product->update($_GET['id'], [
+                'name' => $_POST['name'],
+                'desc' => $_POST['desc'],
+                'photo_id' => $_POST['photo_id'],
+                'cat_id' => $_POST['cat_id']
             ]);
+            return $this->index();
         }
-        $categories = $this->Category->list('ID', 'Name');
+        $photos = $this->Photo->list('id', 'name');
+        $categories = $this->Category->list('id', 'name');
         $form = new \Core\HTML\BootstrapForm($product);
-        $this->render('admin.products.update', compact('product', 'result', 'form', 'categories'));
+        $this->render('admin.products.update', compact('product', 'form', 'categories', 'photos'));
     }
 
     /**
@@ -87,15 +90,9 @@ class ProductsController extends AppController
      */
     public function delete()
     {
-        $result = '';
-        $product = $this->Product->find($_GET['ID']);
-        if ($product === false) {
-            $this->notFound();
-        }
-        $form = new \Core\HTML\BootstrapForm($product);
         if (!empty($_POST)) {
-            $result = $this->Product->delete([$_GET['ID']]);
+            $this->Product->delete([$_POST['id']]);
+            return $this->index();
         }
-        $this->render('admin.products.delete', compact('result', 'product', 'form'));
     }
 }

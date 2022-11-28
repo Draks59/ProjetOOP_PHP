@@ -7,6 +7,7 @@ class LocateController extends AppController
 
     public function index()
     {
-        $this->render('locate.index');
+        $form = new \Core\HTML\BootstrapForm();
+        $this->render('locate.index', compact('form'));
     }
 }

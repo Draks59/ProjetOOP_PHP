@@ -13,7 +13,7 @@
 
         <div>
             <p class="d-flex justify-content-center">Téléphone : 03 12 13 14 15</p>
-            <p class="d-flex justify-content-center">Mail : contact-zerveza@email.com</p>
+            <p class="d-flex justify-content-center">Mail : contact.site-vitrine@email.com</p>
         </div>
 
         <div class="d-flex justify-content-center">

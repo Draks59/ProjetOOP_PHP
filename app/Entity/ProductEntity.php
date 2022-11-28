@@ -14,7 +14,7 @@ class ProductEntity extends Entity
      */
     public function getUrl()
     {
-        return 'index.php?p=products.show&id=' . $this->ID;
+        return 'index.php?p=products.show&id=' . $this->id;
     }
 
     /**
@@ -24,7 +24,7 @@ class ProductEntity extends Entity
      */
     public function getDescription()
     {
-        $html = '<p>' . substr($this->Desc, 0, 150) . '...</p>';
+        $html = '<p>' . substr($this->desc, 0, 150) . '...</p>';
         return  $html;
     }
 }

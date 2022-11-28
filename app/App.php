@@ -6,7 +6,7 @@ use Core\Database\MySqlDatabase;
 class App
 {
 
-    public $title = 'Zerveza';
+    public $title = 'Site vitrine';
     private static $_instance;
     private $db_instance;
 

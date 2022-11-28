@@ -17,6 +17,6 @@ class CategoryTable extends Table
      */
     public function getUrl()
     {
-        return 'index.php?p=products.show&id=' . $this->ID;
+        return 'index.php?p=products.show&id=' . $this->id;
     }
 }

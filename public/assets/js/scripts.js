@@ -90,12 +90,13 @@ function envoyerFormulaire() {
   // je verifie que mes champs obligatoires sont remplis grace à la valeur de mon return dans la fonction.
 
   if (
-    saisieObligatoire(document.getElementById("nom")) == false ||
-    saisieObligatoire(document.getElementById("prenom")) == false ||
-    saisieObligatoire(document.getElementById("email")) == false ||
-    formatNomPrenom(document.getElementById("nom")) == false ||
-    formatNomPrenom(document.getElementById("prenom")) == false ||
-    formatEmail(document.getElementById("email")) == false ||
+    saisieObligatoire(document.getElementById("name")) == false ||
+    saisieObligatoire(document.getElementById("firstname")) == false ||
+    saisieObligatoire(document.getElementById("mail")) == false ||
+    saisieObligatoire(document.getElementById("phone")) == false ||
+    formatNomPrenom(document.getElementById("name")) == false ||
+    formatNomPrenom(document.getElementById("firstname")) == false ||
+    formatEmail(document.getElementById("mail")) == false ||
     controleNumTel(document.getElementById("phone")) == false
   ) {
     window.alert("erreur dans le formulaire");
@@ -109,16 +110,16 @@ window.addEventListener("load", function () {
   "use strict";
   // application d'une fonction qui verifie la saisie obligatoire que l'on applique à tout les champs qui sont obligatoire
 
-  document.getElementById("nom").addEventListener("blur", function () {
+  document.getElementById("name").addEventListener("blur", function () {
     saisieObligatoire(this);
     formatNomPrenom(this);
   });
-  document.getElementById("prenom").addEventListener("blur", function () {
+  document.getElementById("firstname").addEventListener("blur", function () {
     saisieObligatoire(this);
     formatNomPrenom(this);
   });
 
-  document.getElementById("email").addEventListener("blur", function () {
+  document.getElementById("mail").addEventListener("blur", function () {
     formatEmail(this);
     saisieObligatoire(this);
   });

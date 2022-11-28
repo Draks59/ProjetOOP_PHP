@@ -15,11 +15,14 @@
 
             <tr>
                 <td>
-                    <a href="?p=admin.categories.update&ID=<?= $category->ID ?>" class="btn btn-primary">Editer</a>
-                    <a href="?p=admin.categories.delete&ID=<?= $category->ID ?>" class="btn btn-danger">Supprimer</a>
+                    <a href="?p=admin.categories.update&id=<?= $category->id ?>" class="btn btn-primary">Editer</a>
+                    <form action="?p=admin.categories.delete" method="post">
+                        <input type="hidden" name="id" value="<?= $category->id ?>">
+                        <button type="submit" class="btn btn-danger">Supprimer</a>
+                    </form>
                 </td>
-                <td><?= $category->ID ?></td>
-                <td><?= $category->Name ?></td>
+                <td><?= $category->id ?></td>
+                <td><?= $category->name ?></td>
             </tr>
 
         <?php endforeach; ?>
