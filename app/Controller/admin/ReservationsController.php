@@ -24,7 +24,7 @@ class ReservationsController extends AppController
     {
         $form = new \Core\HTML\BootstrapForm();
         if (!empty($_POST)) {
-            $result = $this->Reservation->create([
+            $this->Reservation->create([
                 'name' => $_POST['name'],
                 'firstname' => $_POST['firstname'],
                 'phone' => $_POST['phone'],
@@ -62,7 +62,7 @@ class ReservationsController extends AppController
             $this->notFound();
         }
         if (!empty($_POST)) {
-            $result = $this->Reservation->update($_GET['id'], [
+            $this->Reservation->update($_GET['id'], [
                 'name' => $_POST['name'],
                 'firstname' => $_POST['firstname'],
                 'phone' => $_POST['phone'],

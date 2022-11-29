@@ -24,7 +24,7 @@ class CategoriesController extends AppController
     {
         $form = new \Core\HTML\BootstrapForm();
         if (!empty($_POST)) {
-            $result = $this->Category->create([
+            $this->Category->create([
                 'name' => $_POST['name']
             ]);
             return $this->index();
@@ -55,7 +55,7 @@ class CategoriesController extends AppController
             $this->notFound();
         }
         if (!empty($_POST)) {
-            $result = $this->Category->update($_GET['id'], [
+            $this->Category->update($_GET['id'], [
                 'name' => $_POST['name'],
             ]);
             return $this->index();

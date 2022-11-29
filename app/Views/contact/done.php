@@ -1,4 +1,4 @@
-<p> Merçi <?= $infos['firstname'] . ' ' . $infos['name'] ?> pour votre reservation le : <?= $infos['date'] ?>
+<p> Merçi <?= $infos['firstname'] . ' ' . $infos['name'] ?> pour votre email : <?= $infos['subject'] ?>
 </p>
 <script>
     if (window.history.replaceState) {

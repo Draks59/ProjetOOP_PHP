@@ -3,6 +3,6 @@
 <?php endif; ?>
 <form action="#" method="post">
     <?= $form->input('username', 'Nom d\'utilisateur'); ?>
-    <?= $form->input('password', 'Mot de passe', ['type' => 'password']); ?>
+    <?= $form->input('password', 'Mot de passe', true, ['type' => 'password']); ?>
     <button type="submit" class="btn btn-primary">Envoyer</button>
 </form>
