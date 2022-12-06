@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Table;
+namespace App\Model;
 
-use Core\Table\Table;
+use Core\Model\Table;
 
-class CategoryTable extends Table
+class CategoryModel extends Table
 {
 
     protected $table = "categories";

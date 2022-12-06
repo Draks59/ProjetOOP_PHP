@@ -1,8 +1,7 @@
 <?php
 
-namespace Core\Table;
+namespace Core\Model;
 
-use Core\Database\Database;
 use Core\Database\MysqlDatabase;
 
 class Table
@@ -24,7 +23,7 @@ class Table
 
             $parts = explode('\\', get_class($this));
             $class_name = end($parts);
-            $this->table = strtolower(str_replace('Table', '', $class_name));
+            $this->table = strtolower(str_replace('Model', '', $class_name));
         }
     }
 
@@ -132,9 +131,9 @@ class Table
     {
 
         if ($attributes) {
-            return $this->db->prepare($statement, $attributes, str_replace('Table', 'Entity', get_class($this)), $one);
+            return $this->db->prepare($statement, $attributes, str_replace('Model', 'Entity', get_class($this)), $one);
         } else {
-            return $this->db->query($statement, str_replace('Table', 'Entity', get_class($this)), $one);
+            return $this->db->query($statement, str_replace('Model', 'Entity', get_class($this)), $one);
         }
     }
 

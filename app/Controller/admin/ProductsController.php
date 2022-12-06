@@ -38,7 +38,7 @@ class ProductsController extends AppController
         $categories = $this->Category->list('id', 'name');
         $form = new \Core\HTML\BootstrapForm();
         if (!empty($_POST)) {
-            $result = $this->Product->create([
+            $this->Product->create([
                 'name' => $_POST['name'],
                 'desc' => $_POST['desc'],
                 'photo_id' => $_POST['photo_id'],
@@ -71,7 +71,7 @@ class ProductsController extends AppController
             $this->notFound();
         }
         if (!empty($_POST)) {
-            $result = $this->Product->update($_GET['id'], [
+            $this->Product->update($_GET['id'], [
                 'name' => $_POST['name'],
                 'desc' => $_POST['desc'],
                 'photo_id' => $_POST['photo_id'],
