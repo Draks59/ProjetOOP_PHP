@@ -40,11 +40,9 @@ class Mail
     {
         $this->name = $name;
     }
-    
+
     public function sendMail() //Mail Sending Function.
     {
-        /*don't edit this an less you know what you are doing and how PHP OOP works*/
-        //Content that u wil see in the main body of the email
         $contents = "
 		De : $this->from
 		Nom : $this->firstname
